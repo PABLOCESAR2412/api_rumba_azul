@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+model Mensaje {
+  id          Int      @id @default(autoincrement())
+  nombre      String   // Nombre del usuario
+  telefono    String   // Número de teléfono
+  email       String   // Correo electrónico
+  contenido   String   // Mensaje enviado por el usuario
+  tipo        String   // 'usuario' o 'asistente'
+  creadoEn    DateTime @default(now())
+}
+
+model Evento {
+  id          Int      @id @default(autoincrement())
+  nombre      String
+  telefono    String
+  email       String
+  fecha       DateTime
+  estado      String   @default("pendiente") // 'pendiente', 'confirmado', 'cancelado'
+  creadoEn    DateTime @default(now())
+}
+
+model Cancion {
+  id          Int      @id @default(autoincrement())
+  titulo      String   // Nombre de la canción
+  artista     String   // Artista o banda
+  genero      String   // Género musical
+  duracion    Int      // Duración en segundos
+  creadoEn    DateTime @default(now())
+}
+
