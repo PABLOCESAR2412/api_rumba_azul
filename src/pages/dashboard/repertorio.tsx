@@ -47,7 +47,7 @@ export default function Repertorio() {
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold">Repertorio de Canciones</h1>
+      <h1 className="text-2xl font-bold flex flex-col items-center">Repertorio de Canciones</h1>
       <ul className="mt-4">
         {canciones.map((cancion) => (
           <li key={cancion.id} className="border-b py-2">
